@@ -17,7 +17,7 @@
  '(custom-enabled-themes (quote (wombat)))
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
- '(package-selected-packages (quote (rust-mode cider racket-mode)))
+ '(package-selected-packages (quote (helm rust-mode cider racket-mode)))
  '(standard-indent 4)
  '(tab-width 4)
  '(tool-bar-mode nil)
@@ -42,6 +42,26 @@
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+;; Helm
+(require 'helm)
+(require 'helm-config)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-z") 'helm-select-action)
+(setq helm-split-window-in-side-p		t
+	  helm-move-to-line-cycle-in-source	t
+	  helm-ff-search-library-in-sexp	t
+	  helm-scroll-amount				8
+	  helm-ff-file-name-history-use-recentf	t
+	  helm-echo-input-in-header-line		t)
+(setq helm-autoresize-max-height	0)
+(setq helm-autoresize-min-height	20)
+(helm-autoresize-mode 1)
+(helm-mode 1)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
