@@ -1,0 +1,5 @@
+[user]
+	name = Simon Haines
+	email = simon.haines@scalardata.com
+[credential]
+	helper = store
