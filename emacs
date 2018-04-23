@@ -14,14 +14,22 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes (quote (misterioso)))
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
- '(package-selected-packages (quote (helm rust-mode cider racket-mode)))
+ '(package-selected-packages
+   (quote
+	(rainbow-delimiters helm geiser)))
  '(standard-indent 4)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(visible-bell t))
+
+;; Scheme & Geiser
+(add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'scheme-mode-hook 'show-paren-mode)
+(setq show-paren-delay 0)
+(setq geiser-active-implementations '(racket chicken))
 
 ;; Linux
 (when (eq system-type 'gnu/linux)
@@ -32,7 +40,11 @@
 ;; Windows
 (when (eq system-type 'windows-nt)
   (progn
-	(set-face-font 'default "Consolas-11")))
+	(set-face-font 'default "Inconsolata-12")
+	(setq ring-bell-function 'ignore)
+	(add-to-list 'default-frame-alist '(height . 35))
+	(add-to-list 'default-frame-alist '(top . 50))
+	(add-to-list 'default-frame-alist '(left . 50))))
 
 ;; package management
 (require 'package)
