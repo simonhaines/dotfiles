@@ -17,17 +17,18 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
- '(package-selected-packages (quote (rainbow-delimiters helm geiser)))
+ '(package-selected-packages (quote (racket-mode rainbow-delimiters helm)))
  '(standard-indent 4)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(visible-bell t))
 
-;; Scheme & Geiser
-(add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'scheme-mode-hook 'show-paren-mode)
+;; Racket
+(add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
+(add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
+(add-hook 'racket-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'racket-mode-hook 'show-paren-mode)
 (setq show-paren-delay 0)
-(setq geiser-active-implementations '(racket chicken))
 
 ;; Linux
 (when (eq system-type 'gnu/linux)
@@ -71,3 +72,9 @@
 (setq helm-autoresize-min-height	20)
 (helm-autoresize-mode 1)
 (helm-mode 1)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
