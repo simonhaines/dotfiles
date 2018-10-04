@@ -9,3 +9,6 @@ ff() {
   }
   find . -type f -name \*$1 -exec grep --color=always -Hn $2 "{}" \; | less -RFX
 }
+
+# Display ANSI line characters
+export NCURSES_NO_UTF8_ACS=1
