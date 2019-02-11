@@ -17,7 +17,9 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
- '(package-selected-packages (quote (racket-mode rainbow-delimiters helm)))
+ '(package-selected-packages
+   (quote
+	(cargo racer rust-mode rust-playground qml-mode qt-pro-mode racket-mode rainbow-delimiters helm)))
  '(standard-indent 4)
  '(tab-width 4)
  '(tool-bar-mode nil)

@@ -1,3 +1,46 @@
+# bin/hex/dec converstion between various base numbers
+function hex {
+	for num in "$@"
+	do
+		if [ "${num:0:2}" == "0b" ]; then
+			num="$((2#${num:2}))"
+		fi
+		printf "0x%0X " "$num"
+	done
+}
+
+function bin {
+	for num in $@
+	do
+		result=""
+		if [ "${num:0:2}" == "0x" ]; then
+			num="$((16#${num:2}))"
+		fi
+		while [ $num -ne 0 ] ; do
+			result=$(( $num % 2 ))$result #residual is next digit
+			num=$(( $num / 2 ))
+		done
+		echo -n "0b"$result" "
+	done
+}
+
+function dec {
+	for num in "$@"
+	do
+		case "${num:0:2}" in
+			0b)
+				echo -n "$((2#${num:2})) "
+				;;
+			0x)
+				echo -n "$((16#${num:2})) "
+				;;
+			*)
+				echo -n "$((num)) "
+				;;
+		esac
+	done
+}
+
 # 'ff' command -- find string in files with a specified suffix
 ff() {
   [[ -n $1 && -n $2 ]] || {
