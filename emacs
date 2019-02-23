@@ -1,5 +1,3 @@
-
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -14,10 +12,16 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (misterioso)))
+ '(custom-enabled-themes (quote (zenburn)))
+ '(custom-safe-themes
+   (quote
+	("d057f0430ba54f813a5d60c1d18f28cf97d271fd35a36be478e20924ea9451bd" default)))
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
- '(package-selected-packages (quote (rainbow-delimiters helm geiser)))
+ '(magit-diff-use-overlays nil)
+ '(package-selected-packages
+   (quote
+	(zenburn-theme wc-mode rust-mode rust-playground qml-mode qt-pro-mode racket-mode rainbow-delimiters helm)))
  '(standard-indent 4)
  '(tab-width 4)
  '(tool-bar-mode nil)
@@ -30,10 +34,10 @@
 (setq geiser-active-implementations '(racket chicken))
 
 ;; Linux
-(when (eq system-type 'gnu/linux)
-  (progn
-	(add-to-list 'default-frame-alist '(height . 40))
-	(set-face-font 'default "Inconsolata-10")))
+;;(when (eq system-type 'gnu/linux)
+;;  (progn
+;;	(add-to-list 'default-frame-alist '(height . 40))
+;;	(set-face-font 'default "Inconsolata-10")))
 
 ;; Windows
 (when (eq system-type 'windows-nt)
@@ -71,3 +75,21 @@
 (setq helm-autoresize-min-height	20)
 (helm-autoresize-mode 1)
 (helm-mode 1)
+
+;; Org mode
+(add-hook 'org-mode-hook #'toggle-word-wrap)
+
+;; Theme
+(with-eval-after-load "zenburn-theme"
+  (zenburn-with-color-variables
+    (custom-theme-set-faces
+     'zenburn
+     ;; original `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
+     `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-2)))))))
+	 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Inconsolata" :foundry "CYRE" :slant normal :weight normal :height 128 :width normal)))))
