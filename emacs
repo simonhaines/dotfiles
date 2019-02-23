@@ -77,7 +77,9 @@
 (helm-mode 1)
 
 ;; Org mode
-(add-hook 'org-mode-hook #'toggle-word-wrap)
+(with-eval-after-load 'org
+  (setq org-startup-indented t)
+  (add-hook 'org-mode-hook #'visual-line-mode))
 
 ;; Theme
 (with-eval-after-load "zenburn-theme"
