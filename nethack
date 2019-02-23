@@ -1,0 +1,176 @@
+OPTIONS=altmeta,autodescribe,autodig,boulder:0,checkpoint,!cmdassist,color,disclose:yi ya yv yg yc yo,hilite_pet
+OPTIONS=hilite_pile,!implicit_uncursed,lit_corridor,menu_headings:bold,menu_objsyms,menucolors
+OPTIONS=msg_window:full,number_pad,paranoid_confirmation:quit die bones attack pray wand Remove
+OPTIONS=pickup_burden:Burdened,pile_limit:2,pushweapon,runmode:walk,showexp,showrace,showscore,standout,time
+
+#OPTIONS=align:lawful,gender:female,name:Andrio,race:dwarf,role:valkyrie
+#OPTIONS=align:chaotic,gender:male,name:Andrio,race:elf,role:wizard
+OPTIONS=pettype=cat,catname=Aja,dogname=Marli,horsename=Shadowscale,fruit=berry
+
+# Graphics
+# ========
+
+OPTIONS=symset:IBMgraphics,roguesymset:RogueIBM
+SYMBOLS=s_ghost:W,s_boulder:0
+
+# Autopickup
+# ==========
+
+OPTIONS=autopickup,autoquiver
+OPTIONS=pickup_types:$"%?+!=/*
+AUTOPICKUP_EXCEPTION=">rock"
+AUTOPICKUP_EXCEPTION=">a stone"
+AUTOPICKUP_EXCEPTION=">0 stones"
+AUTOPICKUP_EXCEPTION=">1 stones"
+AUTOPICKUP_EXCEPTION=">2 stones"
+AUTOPICKUP_EXCEPTION=">3 stones"
+AUTOPICKUP_EXCEPTION=">4 stones"
+AUTOPICKUP_EXCEPTION=">5 stones"
+AUTOPICKUP_EXCEPTION=">6 stones"
+AUTOPICKUP_EXCEPTION=">7 stones"
+AUTOPICKUP_EXCEPTION=">8 stones"
+AUTOPICKUP_EXCEPTION=">9 stones"
+AUTOPICKUP_EXCEPTION=">gray stone"
+AUTOPICKUP_EXCEPTION=">loadstone"
+AUTOPICKUP_EXCEPTION=">The Heart of Ahriman"
+AUTOPICKUP_EXCEPTION=">worthless piece of"
+AUTOPICKUP_EXCEPTION=">corpse"
+AUTOPICKUP_EXCEPTION=">glob"
+AUTOPICKUP_EXCEPTION=">scare monster"
+AUTOPICKUP_EXCEPTION=">scroll called Elbereth"
+AUTOPICKUP_EXCEPTION="<gem"
+AUTOPICKUP_EXCEPTION="<dagger"
+
+# Menu colours
+# ============
+
+MENUCOLOR="\bcursed\b|\bunholy\b"=red&bold
+MENUCOLOR="\bblessed\b|\bholy\b"=cyan&bold
+MENUCOLOR="\buncursed\b"=green
+# Items found in a bones pile. I don't use this much any more; I altar-test them instead.
+MENUCOLOR="\binherited\b"=red
+
+MENUCOLOR="Amulet of Yendor named"=magenta
+MENUCOLOR="gold piece"=yellow
+
+# Don't put these in a bag of holding.
+MENUCOLOR="a (rusty |burnt )?wand (of|called) (cancellation|\w+ vanish)"=gray&underline
+MENUCOLOR="an uncursed (rusty |burnt )?wand (of|called) (cancellation|\w+ vanish)"=green&underline
+MENUCOLOR="a blessed (rusty |burnt )?wand (of|called) (cancellation|\w+ vanish)"=lightcyan&underline
+MENUCOLOR="a cursed (rusty |burnt )?wand (of|called) (cancellation|\w+ vanish)"=orange&underline
+MENUCOLOR="an? (greased )?(empty )?bag (of|called) (holding|tricks)"=gray&underline
+MENUCOLOR="an uncursed (greased )?(empty )?bag (of|called) (holding|tricks)"=green&underline
+MENUCOLOR="an? blessed (greased )?(empty )?bag (of|called) (holding|tricks)"=lightcyan&underline
+MENUCOLOR="an? cursed (greased )?(empty )?bag (of|called) (holding|tricks)"=orange&underline
+
+# Don't drop these needlessly.
+MENUCOLOR="(a|[0-9]) scrolls? (of|called) (scare monster|Elbereth)"=gray&underline
+MENUCOLOR="(an|[0-9]) uncursed scrolls? (of|called) (scare monster|Elbereth)"=green&underline
+MENUCOLOR="(a|[0-9]) blessed scrolls? (of|called) (scare monster|Elbereth)"=lightcyan&underline
+MENUCOLOR="(a|[0-9]) cursed scrolls? (of|called) (scare monster|Elbereth)"=orange&underline
+
+# Spells
+MENUCOLOR=" 0%  "=white
+MENUCOLOR=" [1-9]%  "=cyan
+MENUCOLOR=" [12][0-9]%  "=cyan
+MENUCOLOR=" [3-6][0-9]%  "=yellow
+MENUCOLOR=" 7[0-5]%  "=yellow
+MENUCOLOR=" 7[6-9]%  "=red
+MENUCOLOR=" 8[0-9]%  "=red
+MENUCOLOR=" 9[0-9]%  "=red
+MENUCOLOR="100%  "=gray
+MENUCOLOR="\(gone\)"=black
+
+# Displacing pets
+MSGTYPE=hide "You swap places with *"
+MSGTYPE=hide "With great effort you move the boulder."
+MSGTYPE=hide "With little effort you move the boulder."
+MSGTYPE=hide "Perhaps that's why you cannot move it."
+
+# Delayed instadeaths
+MSGTYPE=stop ".* swings itself around you!"
+MSGTYPE=stop "The python grabs you!"
+MSGTYPE=stop "You don't feel very well."
+MSGTYPE=stop "You are turning a little green."
+MSGTYPE=stop "Your limbs are getting oozy."
+MSGTYPE=stop "Your skin begins to peel away."
+MSGTYPE=stop "You are turning into a green slime."
+MSGTYPE=stop "You are slowing down."
+MSGTYPE=stop "Your limbs are stiffening."
+MSGTYPE=stop "It constricts your throat!"
+MSGTYPE=stop "You find it hard to breathe."
+MSGTYPE=stop "You're gasping for air."
+MSGTYPE=stop "Your blood is having trouble reaching your brain."
+MSGTYPE=stop "You can no longer breathe."
+MSGTYPE=stop "You're turning blue."
+MSGTYPE=stop "Your consciousness is fading."
+MSGTYPE=stop "You feel deathly sick."
+MSGTYPE=stop "You feel much worse."
+MSGTYPE=stop "You feel even worse."
+
+# Things that aren't dangerous by themselves but could kill you if you don't notice
+MSGTYPE=stop "You feel feverish."
+MSGTYPE=stop "You fail to cast the spell correctly."
+MSGTYPE=stop "You don't have enough energy to cast that spell."
+MSGTYPE=stop "You are beginning to feel weak."
+MSGTYPE=stop ".* needs food, badly!"
+MSGTYPE=stop "You hear the howling of the CwnAnnwn..."
+MSGTYPE=stop ".*, your life force is running out."
+MSGTYPE=stop ".*, all of your powers will be lost..."
+MSGTYPE=stop "You hear the wailing of the Banshee..."
+MSGTYPE=stop ".* is about to die."
+MSGTYPE=stop "trice corpse rots away."
+
+# Skills
+MSGTYPE=stop "You feel more confident in your weapon skills."
+MSGTYPE=stop "You feel more confident in your fighting skills."
+MSGTYPE=stop "You feel more confident in your spellcasting."
+
+# Status highlights
+# =================
+
+OPTIONS=statushilites:20
+
+# Title
+OPTIONS=hilite_status:title/changed/white
+OPTIONS=hilite_status:alignment/changed/white
+
+# HP
+OPTIONS=hitpointbar
+OPTIONS=hilite_status:hitpoints/100%/grey
+OPTIONS=hilite_status:hitpoints/<100%/green
+OPTIONS=hilite_status:hitpoints/<50%/yellow
+OPTIONS=hilite_status:hitpoints/<33%/red&bold
+OPTIONS=hilite_status:hitpoints/<15%/red
+
+# Mana
+OPTIONS=hilite_status:power/100%/grey
+OPTIONS=hilite_status:power/<100%/cyan
+OPTIONS=hilite_status:power/<50%/magenta
+OPTIONS=hilite_status:power/<25%/red
+
+# Experience level
+OPTIONS=hilite_status:experience/down/red&bold
+OPTIONS=hilite_status:experience-level/up/cyan&bold/down/red&bold
+
+# Encumberance
+OPTIONS=hilite_status:cap/burdened/yellow/stressed/orange/strained/red/overtaxed/red/overloaded/red
+
+# Hunger
+OPTIONS=hilite_status:hunger/satiated/cyan&bold/hungry/yellow/weak/orange/fainting/red&inverse/fainted/red
+
+# Troubles
+OPTIONS=hilite_status:condition/hallu/yellow
+OPTIONS=hilite_status:condition/conf/magenta
+OPTIONS=hilite_status:condition/stun/red&bold
+OPTIONS=hilite_status:condition/major_troubles/red&inverse
+
+# Attributes
+OPTIONS=hilite_status:armor-class/down/green&bold/up/red&bold
+OPTIONS=hilite_status:characteristics/up/green&bold/down/red&bold
+OPTIONS=hilite_status:hitpoints-max/up/green&bold/down/red&bold
+OPTIONS=hilite_status:power-max/up/green&bold/down/red&bold
+
+# Gold
+OPTIONS=hilite_status: gold/up/yellow/down/brown
+

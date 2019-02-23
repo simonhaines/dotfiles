@@ -21,17 +21,18 @@
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-	(zenburn-theme wc-mode rust-mode rust-playground qml-mode qt-pro-mode racket-mode rainbow-delimiters helm)))
+	(zenburn-theme wc-mode rust-mode rust-playground cargo racer qml-mode qt-pro-mode racket-mode rainbow-delimiters helm)))
  '(standard-indent 4)
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(visible-bell t))
 
-;; Scheme & Geiser
-(add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'scheme-mode-hook 'show-paren-mode)
+;; Racket
+(add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
+(add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
+(add-hook 'racket-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'racket-mode-hook 'show-paren-mode)
 (setq show-paren-delay 0)
-(setq geiser-active-implementations '(racket chicken))
 
 ;; Linux
 ;;(when (eq system-type 'gnu/linux)
@@ -94,4 +95,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "CYRE" :slant normal :weight normal :height 128 :width normal)))))
+ '(default ((t (:family "Inconsolata" :foundry "CYRE" :slant normal :weight normal :height 128 :width normal))))))
