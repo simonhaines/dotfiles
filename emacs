@@ -34,6 +34,9 @@
 (add-hook 'racket-mode-hook 'show-paren-mode)
 (setq show-paren-delay 0)
 
+;; Rust
+(setq rust-format-on-save t)  ; Run rustfmt on the buffer after save
+
 ;; Linux
 ;;(when (eq system-type 'gnu/linux)
 ;;  (progn
@@ -95,4 +98,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "CYRE" :slant normal :weight normal :height 128 :width normal))))))
+ '(default ((t (:family "Inconsolata" :foundry "CYRE" :slant normal :weight normal :height 128 :width normal)))))
