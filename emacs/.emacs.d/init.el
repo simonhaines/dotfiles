@@ -7,13 +7,13 @@
 ;;; General settings
 
 ;; No splash
-(inhibit-startup-screen t)
+(setq inhibit-startup-screen t)
 ;; No toolbar
-(tool-bar-mode nil)
+(tool-bar-mode -1)
 ;; No menu bar
-(menu-bar-mode nil)
+(menu-bar-mode -1)
 ;; No blinking cursor
-(blink-cursor-mode nil)
+(blink-cursor-mode -1)
 ;; No backup files
 (setq make-backup-files nil)
 ;; Turn off autosave
@@ -29,14 +29,18 @@
 (global-hl-line-mode t)
 ;; Match parentheses
 (show-paren-mode t)
+(setq show-paren-delay 0)
+;(show-paren-delay 0)
 ;; Overwrite selected regions
 (delete-selection-mode t)
 ;; Draw the cursor as wide as the glyph (e.g. TAB)
 (setq x-stretch-cursor t)
-;; Y or n is good enough
+;; Y or N is good enough
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; CUA mode (C-x, C-c, C-v cut copy paste and more)
 ;(cua-mode t)
+;; Add ~/.emacs.d/lisp to the load path
+(push "~/.emacs.d/lisp" load-path)
 
 ;;; Key bindings
 
@@ -52,15 +56,10 @@
 (require 'package)
 (add-to-list 'package-archives
 			 '("melpa" . "http://melpa.org/packages/") t)
-
-
-
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(setq package-selected-packages
+	  '(helm magit zenburn-theme wc-mode rainbow-delimiters))
 (package-initialize)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -70,33 +69,17 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(blink-cursor-mode nil)
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
 	("54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "d057f0430ba54f813a5d60c1d18f28cf97d271fd35a36be478e20924ea9451bd" default)))
- '(inhibit-startup-screen t)
- '(js-indent-level 2)
  '(magit-diff-use-overlays nil)
- '(package-selected-packages
-   (quote
-	(company zenburn-theme wc-mode rust-mode rust-playground cargo racer qml-mode qt-pro-mode racket-mode rainbow-delimiters helm)))
+ '(menu-bar-mode nil)
+ '(show-paren-mode t)
  '(standard-indent 4)
  '(tab-width 4)
- '(tool-bar-mode nil)
- '(visible-bell t))
-
-;; Racket
-(add-hook 'racket-mode-hook      #'racket-unicode-input-method-enable)
-(add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
-(add-hook 'racket-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'racket-mode-hook 'show-paren-mode)
-(setq show-paren-delay 0)
-
-;; Linux
-;;(when (eq system-type 'gnu/linux)
-;;  (progn
-;;	(add-to-list 'default-frame-alist '(height . 40))
-;;	(set-face-font 'default "Inconsolata-10")))
+ '(tool-bar-mode nil))
 
 ;; Windows
 (when (eq system-type 'windows-nt)
@@ -143,21 +126,13 @@
      'zenburn
      ;; original `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
      `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-2)))))))
-	 
+
+;; ASCII table (external)
+(autoload 'ascii-table "ascii-table.el" "Show ASCII table." t)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "CYRE" :slant normal :weight normal :height 128 :width normal)))))
-
-;; Highlight some keywords in prog-mode
-(add-hook 'prog-mode-hook
-          (lambda ()
-            ;; Highlighting in cmake-mode this way interferes with
-            ;; cmake-font-lock, which is something I don't yet understand.
-            (when (not (derived-mode-p 'cmake-mode))
-              (font-lock-add-keywords
-               nil
-               '(("\\<\\(FIXME\\|TODO\\|BUG\\|DONE\\)"
-                  1 font-lock-warning-face t))))))
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight normal :height 120 :width normal)))))

@@ -1,0 +1,7 @@
+Use GNU stow to restore dotfiles:
+
+$ cd ~/dotfiles
+$ stow bash
+$ stow emacs
+etc
+

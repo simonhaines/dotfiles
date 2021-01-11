@@ -1,3 +1,8 @@
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # bin/hex/dec converstion between various base numbers
 function hex {
 	for num in "$@"
