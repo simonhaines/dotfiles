@@ -26,4 +26,8 @@ XTerm*foreground: Gray50
 XTerm*width: 8
 XTerm*rightScrollBar: true
 XTerm*multiScroll: true
+XTerm*fastScroll: true
 
+! Ctrl+T to open a new terminal in the current directory
+XTerm.vt100.translations: #override \n\
+    Ctrl <Key>T: spawn-new-terminal()

@@ -60,3 +60,6 @@ ff() {
 
 # Display ANSI line characters
 export NCURSES_NO_UTF8_ACS=1
+
+# Custom prompt
+export PS1="\[\e[1;34m\]\w $\[\e[0m\] "

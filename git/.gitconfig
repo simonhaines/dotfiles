@@ -5,3 +5,4 @@
 	helper = store
 [core]
 	excludesfile = /home/simon/.gitignore
+	editor = /usr/bin/micro
