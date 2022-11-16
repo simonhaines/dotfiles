@@ -62,7 +62,7 @@ ff() {
 export NCURSES_NO_UTF8_ACS=1
 
 # Custom prompt
-export PS1="\[\e[1;34m\]\w $\[\e[0m\] "
+export PS1="\[\e[1;32m\]\w $\[\e[0m\] "
 
 # Add Rust to path
 . "$HOME/.cargo/env"
