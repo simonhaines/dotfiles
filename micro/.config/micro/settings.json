@@ -1,0 +1,9 @@
+{
+    "ft:gitignore": {
+        "colorcolumn": 50
+    },
+    "ft:markdown": {
+        "softwrap": true,
+        "wordwrap": true
+    }
+}
