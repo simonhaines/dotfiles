@@ -1,0 +1,9 @@
+set expandtab tabstop=4 shiftwidth=4 shiftround
+set number
+set noswapfile nobackup nowritebackup noundofile
+set whichwrap=h,l,<,>
+
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+syntax on
